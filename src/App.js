@@ -1,19 +1,16 @@
 import React from "react";
-import Container from "./components/Container/Container";
-import Clock from "./components/Clock/Clock";
-import Quote from "./components/Quote/Quote";
+import { Router } from "@reach/router";
+import { Homepage, NotFound } from "./pages";
 
 function App() {
-	return (
-		<div className="App">
-			<Container>
-				<h1>Hello!</h1>
-				<h1>Here are some Kanye Quotes:</h1>
-				<Quote />
-				<Clock />
-			</Container>
-		</div>
-	);
+  return (
+    <div className="App">
+      <Router>
+        <Homepage path="/" />
+        <NotFound default />
+      </Router>
+    </div>
+  );
 }
 
 export default App;
