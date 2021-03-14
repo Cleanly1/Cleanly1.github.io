@@ -7,18 +7,19 @@ const QuoteContainer = styled(Box)`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-
+  border-bottom: 4px solid black;
   ${(props) => props.style || ""}
 
   @media (min-width: 1024px) {
-    width: 60%;
+    width: calc(100vw - 4rem);
   }
 `;
 
 const QuoteText = styled.h1`
   font-size: 1.5rem;
+  height: auto;
   opacity: ${(props) => (props.fade ? "0" : "1")};
-  transition-duration: 1s;
+  transition: all ease 1s;
 `;
 
 class Quote extends React.Component {
@@ -40,6 +41,8 @@ class Quote extends React.Component {
 
   componentWillUnmount() {
     clearInterval(this.timerID);
+    clearInterval(this.timeout);
+    clearInterval(this.timeoutSecondary);
   }
 
   getQuote() {
@@ -49,8 +52,26 @@ class Quote extends React.Component {
       })
       .then((response) => {
         this.setState({ fade: true });
-        setTimeout(() => {
+        this.timeout = setTimeout(() => {
           this.setState({ quote: response.quote });
+        }, 1000);
+        this.timeoutSecondary = setTimeout(() => {
+          this.setState({ fade: false });
+        }, 1200);
+      })
+      .catch(() => {
+        const backupQuotes = [
+          "I feel like me and Taylor might still have sex",
+          "I love sleep; it's my favorite.",
+          "Let's be like water",
+          "I am one of the most famous people on the planet",
+        ];
+
+        this.setState({ fade: true });
+        setTimeout(() => {
+          this.setState({
+            quote: backupQuotes[Math.random() * 4],
+          });
         }, 1000);
         setTimeout(() => {
           this.setState({ fade: false });

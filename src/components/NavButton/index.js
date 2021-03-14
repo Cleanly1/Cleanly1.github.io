@@ -11,7 +11,11 @@ const StyledLink = styled(Link)`
 `;
 
 function NavButton(props) {
-  return <StyledLink to={props.to}>{props.children}</StyledLink>;
+  return (
+    <StyledLink className={props.className} to={props.to}>
+      {props.children}
+    </StyledLink>
+  );
 }
 
 export default NavButton;

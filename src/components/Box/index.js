@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
-  width: 80%;
+  width: calc(100% - 4rem);
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 1px;
-  transition: all ease 0.5s;
+  background-color: ${(props) => props.theme.background};
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
 `;
 
 const Box = (props) => {
