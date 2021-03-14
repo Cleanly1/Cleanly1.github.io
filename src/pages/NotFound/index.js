@@ -1,11 +1,14 @@
 import React from "react";
-import { Container, NavButton } from "../../components";
+import { Container, NavButton, Box } from "../../components";
 
 function NotFound() {
   return (
     <Container>
-      <h1>Seems like you are a bit lost??</h1>
-      <NavButton to="/">Return to the light</NavButton>
+      <Box>
+        <h1>Seems like you are a bit lost??</h1>
+
+        <NavButton to="/">Return to the light</NavButton>
+      </Box>
     </Container>
   );
 }
