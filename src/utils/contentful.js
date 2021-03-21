@@ -1,3 +1,4 @@
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 const contentful = require("contentful");
 const client = contentful.createClient({
   space: process.env.REACT_APP_SPACE_ID,
@@ -28,4 +29,8 @@ export async function fetchProjectsByID(ID) {
   });
 
   return entries;
+}
+
+export function richTextToReact(text, options) {
+  return documentToReactComponents(text, options);
 }
