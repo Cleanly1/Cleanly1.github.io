@@ -1,30 +1,36 @@
 import React from "react";
 import { Router } from "@reach/router";
 import { Homepage, ProjectsPage, SingleProject, NotFound } from "./pages";
-import { ThemeProvider } from "styled-components";
+import { ThemeContext, themes } from "./utils/theme";
 
-const darkMode = {
-  color: "whitesmoke",
-  background: "rgba(15, 15, 15, 1)",
-};
-const lightMode = {
-  color: "rgba(15, 15, 15, 1)",
-  background: "whitesmoke",
-};
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.toggleTheme = () => {
+      this.setState((state) => ({
+        theme: state.theme === themes.dark ? themes.light : themes.dark,
+      }));
+    };
 
-function App() {
-  return (
-    <div className="App">
-      <ThemeProvider theme={darkMode}>
-        <Router>
-          <Homepage path="/" />
-          <ProjectsPage path="/projects" />
-          <SingleProject path="/project/:id" />
-          <NotFound default />
-        </Router>
-      </ThemeProvider>
-    </div>
-  );
+    this.state = {
+      theme: themes.dark,
+      toggleTheme: this.toggleTheme,
+    };
+  }
+  render() {
+    return (
+      <ThemeContext.Provider value={this.state}>
+        <div className="App">
+          <Router>
+            <Homepage path="/" />
+            <ProjectsPage path="/projects" />
+            <SingleProject path="/project/:id" />
+            <NotFound default />
+          </Router>
+        </div>
+      </ThemeContext.Provider>
+    );
+  }
 }
 
 export default App;

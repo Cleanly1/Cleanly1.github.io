@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Clock from "../Clock";
 import Navbar from "../Navbar";
+import { ThemeProvider } from "styled-components";
+import { ThemeContext, themes } from "../../utils/theme";
+import { render } from "@testing-library/react";
 
 const ContainerDiv = styled.div`
   margin: 0;
   min-height: 100vh;
   max-width: 100vw;
-  color: whitesmoke;
-  background-color: #292929;
+  color: ${(props) => props.theme.textColor};
+  background-color: ${(props) => props.theme.background};
   font-family: "Roboto Mono", monospace;
 `;
 
@@ -17,18 +20,48 @@ const StyledWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-flow: column wrap;
-  padding-top: 10vh;
+  padding-top: calc(10vh + 8px);
   width: 100%;
 `;
 
-function Container({ children }) {
-  return (
-    <ContainerDiv>
-      <Navbar />
-      <StyledWrapper>{children}</StyledWrapper>
-      <Clock />
-    </ContainerDiv>
-  );
+const StyledButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${(props) => props.theme.button};
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 1.125rem;
+  margin: 0 0.5rem;
+  width: 2.5rem;
+  text-align: center;
+
+  &:hover {
+    filter: brightness(70%);
+  }
+`;
+
+class Container extends React.Component {
+  render() {
+    return (
+      <ThemeContext.Consumer>
+        {({ theme, toggleTheme }) => (
+          <ThemeProvider theme={theme}>
+            <ContainerDiv>
+              <Navbar>
+                <StyledButton onClick={toggleTheme}>
+                  {theme === themes.dark ? "🌞" : "🌙"}
+                </StyledButton>
+              </Navbar>
+              <StyledWrapper>{this.props.children}</StyledWrapper>
+              <Clock />
+            </ContainerDiv>
+          </ThemeProvider>
+        )}
+      </ThemeContext.Consumer>
+    );
+  }
 }
 
 export default Container;
