@@ -15,6 +15,7 @@ const StyledDiv = styled.div`
 const Text = styled.p`
   font-size: 1.2rem;
   font-weight: bold;
+  text-shadow: 0px 0px 10px white;
 `;
 
 class Clock extends React.Component {

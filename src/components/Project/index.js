@@ -12,8 +12,13 @@ const ProjectContainer = styled(Box)`
   height: auto;
   width: calc(100vw - 4rem);
   transition: border ease 0.8s, background ease 0.8s;
-  border-top: 4px solid black;
-  ${(props) => props.style || "border-bottom: 4px solid black;"}
+
+  ${(props) =>
+    props.style ||
+    css`
+      border-top: 4px solid ${(props) => props.theme.border};
+      border-bottom: 4px solid ${(props) => props.theme.border};
+    `}
 
   @media (min-width: 1024px) {
     flex-flow: row nowrap;
@@ -22,9 +27,9 @@ const ProjectContainer = styled(Box)`
 `;
 
 const hover = css`
-  border-top: 4px solid white;
-  border-bottom: 4px solid white;
-  background-color: rgba(0, 0, 0, 0.9);
+  border-top: 4px solid ${(props) => props.theme.borderActive};
+  border-bottom: 4px solid ${(props) => props.theme.borderActive};
+  background-color: ${(props) => props.theme.backgroundActive};
 `;
 
 const StyledH1 = styled.h1`
@@ -39,6 +44,7 @@ const StyledH1 = styled.h1`
     height: auto;
   }
 `;
+
 const StyledP = styled.p`
   position: relative;
   margin: 0;
@@ -144,7 +150,10 @@ class Project extends React.Component {
             {this.props.data.fields.pre_desc} <br /> TECH: {this.state.techs}
           </StyledP>
         </StyledWrapper>
-        <ImgDiv to={`/project/${this.props.data.fields.title.toLowerCase()}`}>
+        <ImgDiv
+          to={`/project/${this.props.data.fields.title.toLowerCase()}`}
+          state={{ data: this.props.data }}
+        >
           <StyledImg
             src={this.state.img.file.url + "?w=500"}
             alt={this.state.img.description}

@@ -7,7 +7,6 @@ const QuoteContainer = styled(Box)`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  border-bottom: 4px solid black;
   ${(props) => props.style || ""}
 
   @media (min-width: 1024px) {

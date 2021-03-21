@@ -5,8 +5,8 @@ const StyledDiv = styled.div`
   width: calc(100% - 4rem);
   padding: 2rem;
   background-color: ${(props) => props.theme.background};
-  border-top: 4px solid black;
-  border-bottom: 4px solid black;
+  border-top: 4px solid ${(props) => props.theme.border};
+  border-bottom: 4px solid ${(props) => props.theme.border};
 `;
 
 const Box = (props) => {

@@ -10,16 +10,16 @@ const StyledNavbar = styled.header`
   align-items: center;
   background-color: ${(props) => props.theme.background};
   padding: 2.5vh 1vw;
-  height: 4vh;
+  height: 5vh;
   width: calc(100vw - 2vw);
-  border-top: 4px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid ${(props) => props.theme.borderNav};
+  border-bottom: 4px solid ${(props) => props.theme.borderNav};
   box-shadow: 0 0 20px black;
 `;
 
 const StyledNavButton = styled(NavButton)`
   margin: 0 0.5rem;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: ${(props) => props.theme.button};
   color: whitesmoke;
   transition: all ease 0.5s;
 
@@ -32,14 +32,19 @@ const StyledNavButton = styled(NavButton)`
   }
 `;
 
-const Navbar = () => {
+const ButtonContainer = styled.div`
+  display: flex;
+`;
+
+const Navbar = ({ children }) => {
   return (
     <StyledNavbar>
       <div></div>
-      <div>
+      <ButtonContainer>
         <StyledNavButton to="/">Home</StyledNavButton>
         <StyledNavButton to="/projects">Projects</StyledNavButton>
-      </div>
+        {children}
+      </ButtonContainer>
     </StyledNavbar>
   );
 };
