@@ -4,4 +4,6 @@ export { default as ProjectsPage } from "./ProjectsPage";
 
 export { default as SingleProject } from "./SingleProject";
 
+export { default as About } from "./About";
+
 export { default as NotFound } from "./NotFound";

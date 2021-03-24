@@ -10,6 +10,7 @@ export const themes = {
     backgroundActive: "rgba(0, 0, 0, 0.9)",
     borderNav: "rgba(255, 255, 255, 0.1)",
     textColor: "whitesmoke",
+    message: "rgba(255, 255, 255, 0.1)",
   },
   light: {
     color: "rgba(15, 15, 15, 1)",
@@ -20,6 +21,7 @@ export const themes = {
     backgroundActive: "rgba(200, 200, 200, 1)",
     borderNav: "rgba(0, 0, 0, 0.2)",
     textColor: "black",
+    message: "rgba(255, 255, 255, 0.7)",
   },
 };
 export const ThemeContext = React.createContext({

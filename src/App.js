@@ -1,6 +1,12 @@
 import React from "react";
 import { Router } from "@reach/router";
-import { Homepage, ProjectsPage, SingleProject, NotFound } from "./pages";
+import {
+  Homepage,
+  ProjectsPage,
+  SingleProject,
+  About,
+  NotFound,
+} from "./pages";
 import { ThemeContext, themes } from "./utils/theme";
 
 class App extends React.Component {
@@ -25,6 +31,7 @@ class App extends React.Component {
             <Homepage path="/" />
             <ProjectsPage path="/projects" />
             <SingleProject path="/project/:id" />
+            <About path="/about" />
             <NotFound default />
           </Router>
         </div>

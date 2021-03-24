@@ -1,19 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { richTextToReact } from "../../utils/contentful";
 import { Container, Box } from "../../components";
 import { getTechString } from "../../utils/functions";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 
 function SingleProject({ location, id }) {
-  const [project, setProject] = useState(false);
-  const [data, setData] = useState(location.state.data.fields);
-  useEffect(() => {
-    const fetchData = async () => {
-      // const projectList = await fetchProjectsByID(props.id);
-      // setProject(projectList);
-    };
-    fetchData();
-  }, []);
+  const data = location.state.data.fields;
 
   const Bold = ({ children }) => <em class="bold">{children}</em>;
 

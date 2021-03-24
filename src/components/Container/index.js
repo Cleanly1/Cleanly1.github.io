@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Clock from "../Clock";
 import Navbar from "../Navbar";
 import { ThemeProvider } from "styled-components";
 import { ThemeContext, themes } from "../../utils/theme";
-import { render } from "@testing-library/react";
 
 const ContainerDiv = styled.div`
   margin: 0;
@@ -42,6 +41,19 @@ const StyledButton = styled.button`
   }
 `;
 
+const Message = styled.div`
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background-color: ${(props) => props.theme.message};
+  padding: 5px;
+
+  & p {
+    color: ${(props) => props.theme.textColor};
+    margin: 0;
+  }
+`;
+
 class Container extends React.Component {
   render() {
     return (
@@ -56,6 +68,14 @@ class Container extends React.Component {
               </Navbar>
               <StyledWrapper>{this.props.children}</StyledWrapper>
               <Clock />
+              <Message>
+                <p>
+                  This site is under construction{" "}
+                  <span role="img" aria-label="hammer">
+                    🔨
+                  </span>
+                </p>
+              </Message>
             </ContainerDiv>
           </ThemeProvider>
         )}

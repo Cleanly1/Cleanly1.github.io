@@ -1,8 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import Styled from "styled-components";
 import { NavButton } from "../index";
 
-const StyledNavbar = styled.header`
+const StyledNavbar = Styled.header`
   position: fixed;
   display: flex;
   flex-flow: row nowrap;
@@ -15,9 +15,10 @@ const StyledNavbar = styled.header`
   border-top: 4px solid ${(props) => props.theme.borderNav};
   border-bottom: 4px solid ${(props) => props.theme.borderNav};
   box-shadow: 0 0 20px black;
+  z-index: 10;
 `;
 
-const StyledNavButton = styled(NavButton)`
+const StyledNavButton = Styled(NavButton)`
   margin: 0 0.5rem;
   background-color: ${(props) => props.theme.button};
   color: whitesmoke;
@@ -32,16 +33,24 @@ const StyledNavButton = styled(NavButton)`
   }
 `;
 
-const ButtonContainer = styled.div`
+const Logo = Styled.img`
+  height: 5vh;
+  width: auto;
+`;
+
+const ButtonContainer = Styled.div`
   display: flex;
 `;
 
 const Navbar = ({ children }) => {
   return (
     <StyledNavbar>
-      <div></div>
+      <div>
+        <Logo src="/assets/images/logo.gif" alt="Logo" />
+      </div>
       <ButtonContainer>
         <StyledNavButton to="/">Home</StyledNavButton>
+        <StyledNavButton to="/about">About me</StyledNavButton>
         <StyledNavButton to="/projects">Projects</StyledNavButton>
         {children}
       </ButtonContainer>
