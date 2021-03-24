@@ -79,7 +79,6 @@ const StyledImg = styled.img`
 class Project extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.data);
     const techList = getTechString(props.data.fields.tech);
     this.state = {
       display: false,
