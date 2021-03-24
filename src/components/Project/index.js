@@ -19,10 +19,16 @@ const ProjectContainer = styled(Box)`
       border-top: 4px solid ${(props) => props.theme.border};
       border-bottom: 4px solid ${(props) => props.theme.border};
     `}
+  @media (min-width: 426px) {
+    padding: 2rem 8rem;
+    width: calc(100vw - 16rem);
+  }
 
   @media (min-width: 1024px) {
     flex-flow: row nowrap;
     height: 30vh;
+    padding: 2rem;
+    width: calc(100vw - 4rem);
   }
 `;
 
@@ -39,9 +45,15 @@ const StyledH1 = styled.h1`
   transition: all ease 0.4s;
   margin: 0;
   margin-bottom: 1rem;
+  width: fit-content;
+
+  @media (min-width: 768px) {
+    height: auto;
+    transform: translateX(${(props) => (props.hide ? "-100vw" : 0)});
+  }
 
   @media (min-width: 1024px) {
-    height: auto;
+    transform: translateX(${(props) => (props.hide ? "-200%" : 0)});
   }
 `;
 
@@ -52,15 +64,23 @@ const StyledP = styled.p`
   ${(props) => props.styling || "display: none;"}
   opacity: ${(props) => (props.show ? 1 : 0)};
   transition: all ease 0.4s;
+  width: 100%;
 
   @media (min-width: 1024px) {
-    width: 55%;
+    width: 60%;
     height: auto;
   }
 `;
 
 const StyledWrapper = styled.div`
+  display: flex;
+  justify-content: center;
   height: auto;
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    display: block;
+  }
 `;
 
 const ImgDiv = styled(Link)`
