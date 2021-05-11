@@ -1,5 +1,5 @@
-import React from "react";
-import { Router } from "@reach/router";
+import React, { Suspense } from "react";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import {
   Homepage,
   ProjectsPage,
@@ -8,7 +8,6 @@ import {
   NotFound,
 } from "./pages";
 import { ThemeContext, themes } from "./utils/theme";
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -26,15 +25,30 @@ class App extends React.Component {
   render() {
     return (
       <ThemeContext.Provider value={this.state}>
-        <div className="App">
-          <Router>
-            <Homepage path="/" />
-            <ProjectsPage path="/projects" />
-            <SingleProject path="/project/:id" />
-            <About path="/about" />
-            <NotFound default />
-          </Router>
-        </div>
+        <HashRouter>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Switch>
+              <Route
+                exact
+                path={process.env.PUBLIC_URL + "/"}
+                component={Homepage}
+              />
+              <Route
+                path={process.env.PUBLIC_URL + "/projects"}
+                component={ProjectsPage}
+              />
+              <Route
+                path={process.env.PUBLIC_URL + "/project/:id"}
+                component={SingleProject}
+              />
+              <Route
+                path={process.env.PUBLIC_URL + "/about"}
+                component={About}
+              />
+              <Route path={process.env.PUBLIC_URL + "*"} component={NotFound} />
+            </Switch>
+          </Suspense>
+        </HashRouter>
       </ThemeContext.Provider>
     );
   }

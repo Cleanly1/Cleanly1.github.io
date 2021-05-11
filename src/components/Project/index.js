@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "@reach/router";
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import Box from "../Box";
 import { getTechString } from "../../utils/functions";
@@ -170,8 +170,10 @@ class Project extends React.Component {
           </StyledP>
         </StyledWrapper>
         <ImgDiv
-          to={`/project/${this.props.data.fields.title.toLowerCase()}`}
-          state={{ data: this.props.data }}
+          to={{
+            pathname: `/project/${this.props.data.fields.title.toLowerCase()}`,
+            state: { data: this.props.data },
+          }}
         >
           <StyledImg
             src={this.state.img.file.url + "?w=500"}

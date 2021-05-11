@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "@reach/router";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledLink = styled(Link)`
@@ -11,11 +11,7 @@ const StyledLink = styled(Link)`
 `;
 
 function NavButton(props) {
-  return (
-    <StyledLink className={props.className} to={props.to}>
-      {props.children}
-    </StyledLink>
-  );
+  return <StyledLink {...props}>{props.children}</StyledLink>;
 }
 
 export default NavButton;

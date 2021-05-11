@@ -6,8 +6,9 @@ function NotFound() {
     <Container>
       <Box>
         <h1>Seems like you are a bit lost??</h1>
-
-        <NavButton to="/">Return to the light</NavButton>
+        <NavButton to="/" label="Home">
+          Return to the light
+        </NavButton>
       </Box>
     </Container>
   );

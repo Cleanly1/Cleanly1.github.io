@@ -49,9 +49,18 @@ const Navbar = ({ children }) => {
         <Logo src="/assets/images/logo.gif" alt="Logo" />
       </div>
       <ButtonContainer>
-        <StyledNavButton to="/">Home</StyledNavButton>
-        <StyledNavButton to="/about">About me</StyledNavButton>
-        <StyledNavButton to="/projects">Projects</StyledNavButton>
+        <StyledNavButton to={process.env.PUBLIC_URL + "/"} label="Home">
+          Home
+        </StyledNavButton>
+        <StyledNavButton to={process.env.PUBLIC_URL + "/about"} label="About">
+          About me
+        </StyledNavButton>
+        <StyledNavButton
+          to={process.env.PUBLIC_URL + "/projects"}
+          label="Projects"
+        >
+          Projects
+        </StyledNavButton>
         {children}
       </ButtonContainer>
     </StyledNavbar>
