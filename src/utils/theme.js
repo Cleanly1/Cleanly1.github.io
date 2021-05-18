@@ -3,7 +3,7 @@ import React from "react";
 export const themes = {
   dark: {
     color: "rgba(245, 245, 245, 1)",
-    background: "rgba(15, 15, 15, 1)",
+    background: "rgba(35, 35, 35, 1)",
     button: "rgba(255, 255, 255, 0.2)",
     border: "black",
     borderActive: "white",
@@ -13,7 +13,7 @@ export const themes = {
     message: "rgba(255, 255, 255, 0.1)",
   },
   light: {
-    color: "rgba(15, 15, 15, 1)",
+    color: "rgba(35, 35, 35, 1)",
     background: "rgba(220, 220, 220, 1)",
     button: "rgba(0, 0, 0, 0.3)",
     border: "rgba(0, 0, 0, 0.2)",
