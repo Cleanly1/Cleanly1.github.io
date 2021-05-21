@@ -23,9 +23,18 @@ export async function fetchFeaturedProjects() {
   return entries.items;
 }
 
-export async function fetchProjectsByID(ID) {
+export async function fetchEntryByID(ID) {
   const entries = await client.getEntry(ID).then((entry) => {
     return entry.fields;
+  });
+
+  return entries;
+}
+
+export async function fetchProjectsBySlug(slug) {
+  const entries = await client.getEntries({
+    content_type: "project",
+    "fields.slug[in]": slug,
   });
 
   return entries;
