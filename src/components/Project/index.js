@@ -172,7 +172,6 @@ class Project extends React.Component {
         <ImgDiv
           to={{
             pathname: `/project/${this.props.data.fields.title.toLowerCase()}`,
-            state: { data: this.props.data },
           }}
         >
           <StyledImg

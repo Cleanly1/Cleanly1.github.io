@@ -38,7 +38,7 @@ class App extends React.Component {
                 component={ProjectsPage}
               />
               <Route
-                path={process.env.PUBLIC_URL + "/project/:id"}
+                path={process.env.PUBLIC_URL + "/project/:slug"}
                 component={SingleProject}
               />
               <Route
