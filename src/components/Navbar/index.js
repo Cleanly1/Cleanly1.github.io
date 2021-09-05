@@ -11,7 +11,7 @@ const StyledNavbar = Styled.header`
   background-color: ${(props) => props.theme.background};
   padding: 2.5vh 1vw;
   height: 5vh;
-  width: calc(100vw - 2vw);
+  width: calc(100% - 2vw);
   border-top: 4px solid ${(props) => props.theme.borderNav};
   border-bottom: 4px solid ${(props) => props.theme.borderNav};
   box-shadow: 0 0 20px black;
@@ -38,16 +38,32 @@ const Logo = Styled.img`
   width: auto;
 `;
 
-const ButtonContainer = Styled.div`
+const ButtonContainer = Styled.nav`
   display: flex;
+`;
+
+const NameLogo = Styled.div`
+  display: flex;
+  align-items: center;
+
+  span {
+    display: none;
+
+    @media (min-width: 768px){
+      display: block;
+      margin-left: 1rem;
+    }
+
+  }
 `;
 
 const Navbar = ({ children }) => {
   return (
     <StyledNavbar>
-      <div>
+      <NameLogo>
         <Logo src="/assets/images/logo.gif" alt="Logo" />
-      </div>
+        <span>Oskar Turesson</span>
+      </NameLogo>
       <ButtonContainer>
         <StyledNavButton to={process.env.PUBLIC_URL + "/"} label="Home">
           Home

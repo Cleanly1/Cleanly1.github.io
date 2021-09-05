@@ -8,7 +8,7 @@ import { ThemeContext, themes } from "../../utils/theme";
 const ContainerDiv = styled.div`
   margin: 0;
   min-height: 100vh;
-  max-width: 100vw;
+  max-width: 100%;
   color: ${(props) => props.theme.textColor};
   background-color: ${(props) => props.theme.background};
   font-family: "Roboto Mono", monospace;
