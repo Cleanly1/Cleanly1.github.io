@@ -10,7 +10,7 @@ const ProjectContainer = styled(Box)`
   align-items: center;
   justify-content: space-between;
   height: auto;
-  width: calc(100vw - 4rem);
+  width: calc(100% - 4rem);
   transition: border ease 0.8s, background ease 0.8s;
 
   ${(props) =>
@@ -20,15 +20,15 @@ const ProjectContainer = styled(Box)`
       border-bottom: 4px solid ${(props) => props.theme.border};
     `}
   @media (min-width: 426px) {
-    padding: 2rem 8rem;
-    width: calc(100vw - 16rem);
+    padding: 0.5rem 8rem;
+    width: calc(100% - 16rem);
   }
 
   @media (min-width: 1024px) {
     flex-flow: row nowrap;
     height: 30vh;
-    padding: 2rem;
-    width: calc(100vw - 4rem);
+    padding: 0.5rem 2rem;
+    width: calc(100% - 4rem);
   }
 `;
 
@@ -41,15 +41,15 @@ const hover = css`
 const StyledH1 = styled.h1`
   position: ${(props) => (props.styling ? "absolute" : "relative")};
   display: block;
-  transform: translateX(${(props) => (props.hide ? "-200%" : 0)});
-  transition: all ease 0.4s;
+  transform: translateX(${(props) => (props.hide ? "-100vw" : 0)});
+  transition: all ease 0.8s;
   margin: 0;
   margin-bottom: 1rem;
   width: fit-content;
 
   @media (min-width: 768px) {
     height: auto;
-    transform: translateX(${(props) => (props.hide ? "-100vw" : 0)});
+    transition: all ease 0.4s;
   }
 
   @media (min-width: 1024px) {
@@ -88,11 +88,12 @@ const ImgDiv = styled(Link)`
 `;
 
 const StyledImg = styled.img`
-  width: 100%;
+  max-height: 16rem;
+  max-width: 100%;
 
   @media (min-width: 1024px) {
     height: 100%;
-    width: auto;
+    max-width: inherit;
   }
 `;
 
