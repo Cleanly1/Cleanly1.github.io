@@ -43,3 +43,12 @@ export async function fetchProjectsBySlug(slug) {
 export function richTextToReact(text, options) {
   return documentToReactComponents(text, options);
 }
+
+export async function fetchPageBySlug(slug) {
+  const entries = await client.getEntries({
+    content_type: "page",
+    "fields.slug[in]": slug,
+  });
+
+  return entries;
+}
