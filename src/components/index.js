@@ -11,3 +11,7 @@ export { default as Navbar } from "./Navbar";
 export { default as Box } from "./Box";
 
 export { default as Container } from "./Container";
+
+export { default as ProjectsList } from "./ProjectsList";
+
+export { default as Socials } from "./Socials";
