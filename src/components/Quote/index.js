@@ -10,7 +10,7 @@ const QuoteContainer = styled(Box)`
   ${(props) => props.style || ""}
 
   @media (min-width: 1024px) {
-    width: calc(100vw - 4rem);
+    width: calc(100% - 4rem);
   }
 `;
 
