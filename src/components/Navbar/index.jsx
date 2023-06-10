@@ -1,6 +1,6 @@
-import React from "react";
-import Styled from "styled-components";
-import { NavButton } from "../index";
+import React from 'react';
+import Styled from 'styled-components';
+import NavButton from '../NavButton';
 
 const StyledNavbar = Styled.header`
   position: fixed;
@@ -58,29 +58,29 @@ const NameLogo = Styled.div`
 `;
 
 const Navbar = ({ children }) => {
-  return (
-    <StyledNavbar>
-      <NameLogo>
-        <Logo src="/assets/images/logo.gif" alt="Logo" />
-        <span>Oskar Turesson</span>
-      </NameLogo>
-      <ButtonContainer>
-        <StyledNavButton to={process.env.PUBLIC_URL + "/"} label="Home">
-          Home
-        </StyledNavButton>
-        <StyledNavButton to={process.env.PUBLIC_URL + "/about"} label="About">
-          About me
-        </StyledNavButton>
-        <StyledNavButton
-          to={process.env.PUBLIC_URL + "/projects"}
-          label="Projects"
-        >
-          Projects
-        </StyledNavButton>
-        {children}
-      </ButtonContainer>
-    </StyledNavbar>
-  );
+	return (
+		<StyledNavbar>
+			<NameLogo>
+				<Logo src="/assets/images/logo.gif" alt="Logo" />
+				<span>Oskar Turesson</span>
+			</NameLogo>
+			<ButtonContainer>
+				<StyledNavButton to={process.env.PUBLIC_URL + '/'} label="Home">
+					Home
+				</StyledNavButton>
+				<StyledNavButton to={process.env.PUBLIC_URL + '/about'} label="About">
+					About me
+				</StyledNavButton>
+				<StyledNavButton
+					to={process.env.PUBLIC_URL + '/projects'}
+					label="Projects"
+				>
+					Projects
+				</StyledNavButton>
+				{children}
+			</ButtonContainer>
+		</StyledNavbar>
+	);
 };
 
 export default Navbar;
